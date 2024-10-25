@@ -15,7 +15,7 @@ git_override(
 git_override(
     module_name = "rules_android",
     commit = RULES_ANDROID_COMMIT,
-    remote = "https://github.com/bazelbuild/rules_android",
+    remote = "https://github.com/Bencodes/rules_android",
 )
 
 register_toolchains(
