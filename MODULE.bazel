@@ -1,0 +1,26 @@
+bazel_dep(name = "rules_java", version = "7.7.0")
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "rules_kotlin", version = "1.9.5")
+bazel_dep(name = "rules_android", version = "0.2.0")
+
+RULES_KOTLIN_COMMIT = "d5b06f7b9b10811321cb7af9054c8c9c1d844b52"
+RULES_ANDROID_COMMIT = "9ac3ad58a20b8ca85a2c8dcdb2d57fa2b8130b6d"
+
+git_override(
+    module_name = "rules_kotlin",
+    commit = RULES_KOTLIN_COMMIT,
+    remote = "https://github.com/Bencodes/rules_kotlin",
+)
+
+git_override(
+    module_name = "rules_android",
+    commit = RULES_ANDROID_COMMIT,
+    remote = "https://github.com/bazelbuild/rules_android",
+)
+
+register_toolchains(
+    "@rules_android//toolchains/android:android_default_toolchain",
+    "@rules_android//toolchains/android_sdk:android_sdk_tools",
+)
+
+bazel_dep(name = "rules_jvm_external", version = "6.2")
